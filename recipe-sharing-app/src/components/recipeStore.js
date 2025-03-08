@@ -7,9 +7,14 @@ const useRecipeStore = create(set => ({
   favorites: [],
   recommendations: [],
 
+  setRecipes: (newRecipes) => set({
+    recipes: newRecipes,
+    filteredRecipes: newRecipes, // Ensure filtered recipes update accordingly
+  }),
+
   addRecipe: (newRecipe) => set(state => ({
     recipes: [...state.recipes, newRecipe],
-    filteredRecipes: [...state.recipes, newRecipe],
+    filteredRecipes: [...state.filteredRecipes, newRecipe],
   })),
 
   updateRecipe: (updatedRecipe) => set(state => ({
