@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 
 const RecipeList = () => {
   const filteredRecipes = useRecipeStore(state => state.filteredRecipes);
+  const favorites = useRecipeStore(state => state.favorites);
+  const addFavorite = useRecipeStore(state => state.addFavorite);
+  const removeFavorite = useRecipeStore(state => state.removeFavorite);
 
   return (
     <div>
@@ -16,6 +19,14 @@ const RecipeList = () => {
             <h3>{recipe.title}</h3>
             <p>{recipe.description}</p>
             <Link to={`/recipe/${recipe.id}`}>View Details</Link>
+            <button
+              onClick={() =>
+                favorites.includes(recipe.id) ? removeFavorite(recipe.id) : addFavorite(recipe.id)
+              }
+              style={{ marginLeft: '10px' }}
+            >
+              {favorites.includes(recipe.id) ? 'Unfavorite' : 'Favorite'}
+            </button>
           </div>
         ))
       )}

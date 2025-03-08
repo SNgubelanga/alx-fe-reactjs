@@ -4,10 +4,12 @@ const useRecipeStore = create(set => ({
   recipes: [],
   searchTerm: '',
   filteredRecipes: [],
+  favorites: [],
+  recommendations: [],
 
   addRecipe: (newRecipe) => set(state => ({
     recipes: [...state.recipes, newRecipe],
-    filteredRecipes: [...state.recipes, newRecipe], // Ensure filtered list updates
+    filteredRecipes: [...state.recipes, newRecipe],
   })),
 
   updateRecipe: (updatedRecipe) => set(state => ({
@@ -22,13 +24,31 @@ const useRecipeStore = create(set => ({
   deleteRecipe: (id) => set(state => ({
     recipes: state.recipes.filter(recipe => recipe.id !== id),
     filteredRecipes: state.filteredRecipes.filter(recipe => recipe.id !== id),
+    favorites: state.favorites.filter(favId => favId !== id),
+    recommendations: state.recommendations.filter(rec => rec.id !== id),
   })),
 
-  setSearchTerm: (term) => set(state => {
-    const filtered = state.recipes.filter(recipe =>
+  setSearchTerm: (term) => set(state => ({
+    searchTerm: term,
+    filteredRecipes: state.recipes.filter(recipe =>
       recipe.title.toLowerCase().includes(term.toLowerCase())
+    ),
+  })),
+
+  addFavorite: (recipeId) => set(state => ({
+    favorites: state.favorites.includes(recipeId) ? state.favorites : [...state.favorites, recipeId],
+  })),
+
+  removeFavorite: (recipeId) => set(state => ({
+    favorites: state.favorites.filter(id => id !== recipeId),
+  })),
+
+  generateRecommendations: () => set(state => {
+    // Mock recommendation system: Recommend recipes based on favorites
+    const recommended = state.recipes.filter(recipe =>
+      state.favorites.includes(recipe.id) && Math.random() > 0.5
     );
-    return { searchTerm: term, filteredRecipes: filtered };
+    return { recommendations: recommended };
   }),
 }));
 
