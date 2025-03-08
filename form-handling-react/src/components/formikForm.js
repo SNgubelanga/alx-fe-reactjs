@@ -1,20 +1,20 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const FormikForm = () => {
-  // Define validation schema using Yup
-  const validationSchema = Yup.object({
-    username: Yup.string().required("Username is required"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
-  });
+const validationSchema = Yup.object({
+  username: Yup.string().required("Username is required"),
+  email: Yup.string().email("Invalid email format").required("Email is required"),
+  password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
+});
 
+const FormikForm = () => {
   return (
     <Formik
       initialValues={{ username: "", email: "", password: "" }}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
-        console.log("Formik Form Submitted:", values);
+      onSubmit={(values, { resetForm }) => {
+        console.log("Form submitted successfully", values);
+        resetForm();
       }}
     >
       {({ isSubmitting }) => (
@@ -37,7 +37,9 @@ const FormikForm = () => {
             <ErrorMessage name="password" component="p" style={{ color: "red" }} />
           </div>
 
-          <button type="submit" disabled={isSubmitting}>Register</button>
+          <button type="submit" disabled={isSubmitting}>
+            Register
+          </button>
         </Form>
       )}
     </Formik>

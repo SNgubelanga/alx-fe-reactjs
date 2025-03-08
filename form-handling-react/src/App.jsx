@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import RegistrationForm from "./components/RegistrationForm.jsx";
-import FormikForm from "./components/FormikForm.jsx";
+import FormikForm from "./components/formikForm.js";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,13 +27,22 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
+      <Router>
       <div>
-      <h1>Controlled Form</h1>
-      <RegistrationForm />
+        <h1>User Registration</h1>
+        <nav>
+          <ul>
+            <li><Link to="/registration">Controlled Form</Link></li>
+            <li><Link to="/formik">Formik Form</Link></li>
+          </ul>
+        </nav>
 
-      <h1>Formik Form</h1>
-      <FormikForm />
+        <Routes>
+          <Route path="/registration" element={<RegistrationForm />} />
+          <Route path="/formik" element={<FormikForm />} />
+        </Routes>
       </div>
+      </Router>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
