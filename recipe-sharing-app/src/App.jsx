@@ -8,6 +8,7 @@ import AddRecipeForm from './components/AddRecipeForm.jsx';
 import RecipeList from './components/RecipeList.jsx';
 import RecipeDetails from './components/RecipeDetails.jsx';
 import AddRecipeForm from './components/AddRecipeForm.jsx';
+import SearchBar from './components/SearchBar.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -37,11 +38,15 @@ function App() {
       <RecipeList />
       </div>
       <Router>
-      <Routes>
-        <Route path="/" element={<RecipeList />} />
-        <Route path="/recipe/:id" element={<RecipeDetails />} />
-      </Routes>
-      <AddRecipeForm />
+      <div style={{ padding: '20px' }}>
+        <h1>Recipe Sharing App</h1>
+        <SearchBar />
+        <Routes>
+          <Route path="/" element={<RecipeList />} />
+          <Route path="/recipe/:id" element={<RecipeDetails />} />
+        </Routes>
+        <AddRecipeForm />
+      </div>
       </Router>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
