@@ -1,8 +1,12 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import RecipeList from './components/RecipeList.jsx'
+import AddRecipeForm from './components/AddRecipeForm.jsx';
+import RecipeList from './components/RecipeList.jsx';
+import RecipeDetails from './components/RecipeDetails.jsx';
 import AddRecipeForm from './components/AddRecipeForm.jsx';
 
 function App() {
@@ -32,6 +36,13 @@ function App() {
       <AddRecipeForm />
       <RecipeList />
       </div>
+      <Router>
+      <Routes>
+        <Route path="/" element={<RecipeList />} />
+        <Route path="/recipe/:id" element={<RecipeDetails />} />
+      </Routes>
+      <AddRecipeForm />
+      </Router>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
