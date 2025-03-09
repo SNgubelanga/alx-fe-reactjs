@@ -1,8 +1,4 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BlogPost from "./components/BlogPost";
@@ -15,15 +11,19 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        
+
         {/* Protected Profile Route */}
         <Route
           path="/profile/*"
-          element={<ProtectedRoute><Profile /></ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
         />
 
-        {/* Dynamic Blog Post Route */}
-        <Route path="/blog/:postId" element={<BlogPost />} />
+        {/* Dynamic Blog Post Route with "/blog/:id" */}
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </Router>
   );
