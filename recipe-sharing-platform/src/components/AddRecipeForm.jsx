@@ -42,10 +42,10 @@ export const AddRecipeForm = () => {
   return (
     <>
       <div className="w-full">
-        <form onSubmit={handleSubmit}>
+        <form className="md:w-1/2 sm:w-full bg-slate-100 p-10" onSubmit={handleSubmit}>
           <p className="text-red-600">{errors[0]}</p>
           <div className="mb-5">
-            <label htmlFor="title">
+            <label className="text-center text-base" htmlFor="title">
               Title <span className="text-red-600">*</span>
             </label>
             <input
