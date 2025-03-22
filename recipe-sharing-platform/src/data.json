@@ -3,12 +3,16 @@
       "id": 1,
       "title": "Spaghetti Carbonara",
       "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+      "ingredients": "Spaghetti carbonara traditionally features spaghetti pasta, eggs, guanciale (or pancetta), Pecorino Romano cheese, and black pepper, creating a rich, creamy sauce without added cream. ",
+      "instructions": "Spaghetti carbonara traditionally features spaghetti pasta, eggs, guanciale (or pancetta), Pecorino Romano cheese, and black pepper, creating a rich, creamy sauce without added cream.",
       "image": "https://www.allrecipes.com/thmb/Y7ftij8uq7sM2VpxGt-RHZg3yaA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11973-spaghetti-carbonara-mfs-042-21d5decdffde4a1faa94a21725ce9cc3.jpg"
     },
     {
       "id": 2,
       "title": "Chicken Tikka Masala",
       "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+      "ingredients": "To make chicken tikka masala, you'll need chicken (thighs are a good choice), yogurt for the marinade, spices like garam masala, cumin, coriander, chili powder, and turmeric, plus tomatoes, cream, and onions for the sauce. ",
+      "instructions": "To make chicken tikka masala, you'll need chicken (thighs are a good choice), yogurt for the marinade, spices like garam masala, cumin, coriander, chili powder, and turmeric, plus tomatoes, cream, and onions for the sauce.",
       "image": "https://www.recipetineats.com/tachyon/2018/04/Chicken-Tikka-Masala_0-SQ.jpg"
     }
   ]
