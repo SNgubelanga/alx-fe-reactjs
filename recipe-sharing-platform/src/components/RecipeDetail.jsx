@@ -29,18 +29,18 @@ export const RecipeDetail = () => {
             alt=""
             className="rounded-full my-4 w-40 h-40"
           />
-          <div className="bg-slate-100 p-10 w-full">
+          <div className="bg-slate-100 p-10 shadow-lg w-full">
             <p className="text-lg text-center">{recipeData.summary}</p>
           </div>
           <hr />
-          <h4 className="uppercase my-4">Cooking Details</h4>
+          <h4 className="uppercase my-4 font-mono font-extrabold">Cooking Details</h4>
           <div className="grid md:grid-cols-2 gap-4 sm:grid-cols-1">
-            <div className="bg-slate-100 p-10 text-center">
-              <h3 className="uppercase">Ingredients</h3>
+            <div className="bg-slate-100 p-10 text-center shadow-lg">
+              <h3 className="uppercase font-mono font-extrabold">Ingredients</h3>
               <p>{recipeData.ingredients}</p>
             </div>
-            <div className="bg-slate-100 p-10 text-center">
-            <h3 className="uppercase">Instructions</h3>
+            <div className="bg-slate-100 p-10 text-center shadow-lg">
+            <h3 className="uppercase font-mono font-extrabold">Instructions</h3>
               <p>{recipeData.instructions}</p>
             </div>
           </div>
