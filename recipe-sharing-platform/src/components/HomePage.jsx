@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import {Link} from "react-router-dom";
 
 export const HomePage = () => {
     const [recipes, setData] = useState([])
@@ -22,6 +23,7 @@ export const HomePage = () => {
             <img src={recipe.image} alt={recipe.title} className="w-40 hover:scale-110 transition ease-in-out h-40 mx-auto mb-6 rounded-full border-2 border-fuchsia-300" />
             <h2 className="uppercase sm:text-sm text-center">{recipe.title}</h2>
             <p className="text-center md:text-base sm:text-lg">{recipe.summary}</p>
+            <Link to={`/recipe/${recipe.id}`}>Details</Link>
         </div>)}
         </div>
         </>
