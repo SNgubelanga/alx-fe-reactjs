@@ -11,7 +11,7 @@ export const AddRecipeForm = () => {
   const [instructionError, setinstructionError] = useState("");
 
   // Submit Form
-  const validateFields = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (ingredients.trim() === "") {
@@ -31,7 +31,7 @@ export const AddRecipeForm = () => {
   return (
     <>
       <div className="w-full">
-        <form onSubmit={validateFields}>
+        <form onSubmit={handleSubmit}>
           <div className="mb-5">
             <label htmlFor="title">
               Title <span className="text-red-600">*</span>
