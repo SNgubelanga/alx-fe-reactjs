@@ -9,10 +9,17 @@ export const AddRecipeForm = () => {
   const [ingredientsError, setingredientsError] = useState("");
   const [titleError, setTitleError] = useState("");
   const [instructionError, setinstructionError] = useState("");
+  const [validate, setValidate] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   // Submit Form
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if(!ingredients.trim() || !title.trim() || !steps.trim()){
+      setErrors(errors.push("All fields are required"))
+      // console.log(errors[0])
+    }
 
     if (ingredients.trim() === "") {
       setingredientsError("Ingredients field is required.");
@@ -24,7 +31,11 @@ export const AddRecipeForm = () => {
       setTitleError("Title field is required.");}
 
     if(title.trim() && ingredients.trim() && steps.trim()){
-      alert("Validated.")
+      setValidate(true);
+
+      if(validate){
+        alert("Validated");
+      }
     }
   };
 
@@ -32,6 +43,7 @@ export const AddRecipeForm = () => {
     <>
       <div className="w-full">
         <form onSubmit={handleSubmit}>
+          <p className="text-red-600">{errors[0]}</p>
           <div className="mb-5">
             <label htmlFor="title">
               Title <span className="text-red-600">*</span>
@@ -80,12 +92,12 @@ export const AddRecipeForm = () => {
             </small>
           </div>
           <div className="mb-4">
-            <label htmlFor="instructions">
+            <label htmlFor="steps">
               Steps <span className="text-red-600">*</span>
             </label>
             <textarea
               name="instructions"
-              id="instructions"
+              id="steps"
               value={steps}
               onFocus={(e) => setinstructionError("")}
               onChange={(e) => setSteps(e.target.value)}
