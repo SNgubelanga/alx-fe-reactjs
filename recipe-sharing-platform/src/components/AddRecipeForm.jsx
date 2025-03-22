@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export const AddRecipeForm = () => {
   const [title, setTitle] = useState("");
-  const [instructions, setInstructions] = useState("");
+  const [steps, setSteps] = useState("");
   const [ingredients, setIngredients] = useState("");
 
   // Errors
@@ -17,13 +17,13 @@ export const AddRecipeForm = () => {
     if (ingredients.trim() === "") {
       setingredientsError("Ingredients field is required.");
     }
-    if (instructions.trim() === "") {
-      setinstructionError("Instruction field is required.");
+    if (steps.trim() === "") {
+      setinstructionError("Steps field is required.");
     }
     if (title.trim() === "") {
       setTitleError("Title field is required.");}
 
-    if(title.trim() && ingredients.trim() && instructions.trim()){
+    if(title.trim() && ingredients.trim() && steps.trim()){
       alert("Validated.")
     }
   };
@@ -81,14 +81,14 @@ export const AddRecipeForm = () => {
           </div>
           <div className="mb-4">
             <label htmlFor="instructions">
-              Instructions <span className="text-red-600">*</span>
+              Steps <span className="text-red-600">*</span>
             </label>
             <textarea
               name="instructions"
               id="instructions"
-              value={instructions}
+              value={steps}
               onFocus={(e) => setinstructionError("")}
-              onChange={(e) => setInstructions(e.target.value)}
+              onChange={(e) => setSteps(e.target.value)}
               placeholder="Write instructions here.."
               className="shadow appearance-none bg-slate-100 rounded w-full py-2 px-3 text-gray-900"
             ></textarea>
